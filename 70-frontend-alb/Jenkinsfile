@@ -8,7 +8,6 @@ pipeline {
         ACC_ID = "351818465616"
         PROJECT = "roboshop"
   }
-}
     options {
         timeout(time: 30, unit: 'MINUTES') 
         disableConcurrentBuilds()
@@ -28,7 +27,7 @@ pipeline {
                 script {
                     withAWS(credentials: 'aws-auth', region: 'us-east-1') {
                         sh """
-                            cd 20-bastion
+                            cd 70-frontend-alb
                             terraform init -reconfigure
                         """
                     }
@@ -41,7 +40,7 @@ pipeline {
                 script {
                     withAWS(credentials: 'aws-auth', region: 'us-east-1') {
                         sh """
-                            cd 20-bastion
+                            cd 70-frontend-alb
                             terraform plan
                         """
                     }
@@ -53,7 +52,7 @@ pipeline {
                 script {
                     withAWS(credentials: 'aws-auth', region: 'us-east-1') {
                         sh """
-                            cd 20-bastion
+                            cd 70-frontend-alb
                             terraform apply -auto-approve
                         """
                     }

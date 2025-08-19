@@ -7,9 +7,9 @@ pipeline {
         REGION = "us-east-1"
         ACC_ID = "351818465616"
         PROJECT = "roboshop"
+
   }
-}
-    options {
+   options {
         timeout(time: 30, unit: 'MINUTES') 
         disableConcurrentBuilds()
         ansiColor('xterm')
@@ -28,7 +28,7 @@ pipeline {
                 script {
                     withAWS(credentials: 'aws-auth', region: 'us-east-1') {
                         sh """
-                            cd 20-bastion
+                            cd 60-acm
                             terraform init -reconfigure
                         """
                     }
@@ -41,7 +41,7 @@ pipeline {
                 script {
                     withAWS(credentials: 'aws-auth', region: 'us-east-1') {
                         sh """
-                            cd 20-bastion
+                            cd 60-acm
                             terraform plan
                         """
                     }
@@ -53,7 +53,7 @@ pipeline {
                 script {
                     withAWS(credentials: 'aws-auth', region: 'us-east-1') {
                         sh """
-                            cd 20-bastion
+                            cd 60-acm
                             terraform apply -auto-approve
                         """
                     }
