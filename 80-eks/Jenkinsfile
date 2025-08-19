@@ -7,17 +7,6 @@ pipeline {
         REGION = "us-east-1"
         ACC_ID = "351818465616"
         PROJECT = "roboshop"
-}
-
-pipeline {
-    agent  {
-        label 'AGENT-1'
-    }
-    environment { 
-        appVersion = ''
-        REGION = "us-east-1"
-        ACC_ID = "315069654700"
-        PROJECT = "roboshop"
     }
     options {
         timeout(time: 30, unit: 'MINUTES') 
@@ -85,3 +74,4 @@ pipeline {
             echo 'Hello Failure'
         }
     }
+}
