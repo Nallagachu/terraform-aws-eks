@@ -7,7 +7,7 @@ pipeline {
         REGION = "us-east-1"
         ACC_ID = "351818465616"
         PROJECT = "roboshop"
-             PROJECT = "roboshop"
+        
     }
     options {
         timeout(time: 30, unit: 'MINUTES') 
