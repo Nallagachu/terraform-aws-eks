@@ -24,7 +24,7 @@ pipeline {
     stages {
         stage('init') {
             steps {
-                script {
+                script { 
                     withAWS(credentials: 'aws-auth', region: 'us-east-1') {
                         sh """
                             cd 10-sg
