@@ -76,7 +76,7 @@ module "eks" {
   tags = merge(
     local.common_tags,
     {
-        Name = "${var.project}-${var.environment}"
+        Name = "${var.project}-${var.environment}" # roboshop-dev
     }
   )
 }
